@@ -1,7 +1,7 @@
 # Python-music-player
 Right now, its just a simple mp3 player. You are going to need python to run this, so google and download the latest version to use it
 
-#Steps to setup
+# Steps-to-setup
 Get a folder and place .mp3, .wav, and/or .ogg files inside.
 Run the python script and click on "File" and press "Open"
 Select the folder you made

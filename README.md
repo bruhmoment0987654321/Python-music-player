@@ -4,11 +4,9 @@ Right now, its just a simple mp3 player. You are going to need python to run thi
 # Steps to setup
 Get a folder and place .mp3, .wav, and/or .ogg files inside.
 
-Run the python script and click on "File" and press "Open"
+Run the python script and click on "File" and press "Add folder" or "Add Song"
 
-Select the folder you made.
-
-
+Select the folder/song.
 
 Press the play button to listen to first song on the file.
 Press the next button to play the next song under the first.

@@ -1,11 +1,11 @@
 from tkinter import filedialog
-from tkinter import *
+import tkinter
 import time
 import pygame
 import os
 import mutagen
 
-root = Tk()
+root = tkinter.Tk()
 root.title('Music Player')
 root.geometry("550x450")
 
@@ -16,13 +16,13 @@ current_song = ""
 paused = False
 looping = False
 #button images
-play_btn_img= PhotoImage(file='Images/Play.png')
-back_btn_img= PhotoImage(file='Images/Back.png')
-forward_btn_img= PhotoImage(file='Images/Next.png')
-pause_btn_img= PhotoImage(file='Images/Pause.png')
-loop_btn_img = PhotoImage(file='Images/Loop.png')
-no_loop_img = PhotoImage(file='Images/No_Loop.png')
-shuffle_btn_img = PhotoImage(file='Images/Shuffle.png')
+play_btn_img= tkinter.PhotoImage(file='Images/Play.png')
+back_btn_img= tkinter.PhotoImage(file='Images/Back.png')
+forward_btn_img= tkinter.PhotoImage(file='Images/Next.png')
+pause_btn_img= tkinter.PhotoImage(file='Images/Pause.png')
+loop_btn_img = tkinter.PhotoImage(file='Images/Loop.png')
+no_loop_img = tkinter.PhotoImage(file='Images/No_Loop.png')
+shuffle_btn_img = tkinter.PhotoImage(file='Images/Shuffle.png')
 
 #grab song metadata(?) and time
 def play_time():
@@ -55,8 +55,8 @@ def play_time():
     #update time
     status_bar.after(1000,play_time)
 
-menubar = Menu(root)
-root.config(menu=menubar)
+Menubar = tkinter.Menu(root)
+root.config(menu=Menubar)
 
 #most functions 
 def load_music():
@@ -153,33 +153,33 @@ def shuffle():
     pass
     
 #setting up Gui
-organise_menu = Menu(menubar,tearoff=False)
+organise_menu = tkinter.Menu(Menubar,tearoff=False)
 organise_menu.add_command(label='Add Song', command=load_song)
 organise_menu.add_command(label='Add Folder',command=load_music)
 organise_menu.add_command(label='Remove Song (upcoming)')
-menubar.add_cascade(label='File',menu=organise_menu)
+Menubar.add_cascade(label='File',menu=organise_menu)
 
 #listbox
-songlist = Listbox(root, bg="black", fg="white",width=80,height=15)
+songlist = tkinter.Listbox(root, bg="black", fg="white",width=80,height=15)
 songlist.pack()
 
 #where songs are displayed
-control_frame = Frame(root)
+control_frame = tkinter.Frame(root)
 control_frame.pack()
 
 #button gui
-play_btn = Button(control_frame,image=play_btn_img, borderwidth = 0,command = press_play)
-back_btn = Button(control_frame,image=back_btn_img, borderwidth = 0,command = prev_song)
-forward_btn = Button(control_frame,image=forward_btn_img, borderwidth = 0,command = next_song)
-loop_btn = Button(control_frame, image=no_loop_img, borderwidth=0, command = loopit)
-shuffle_btn = Button(control_frame, image = shuffle_btn_img, borderwidth=0, command = shuffle)
+play_btn = tkinter.Button(control_frame,image=play_btn_img, borderwidth = 0,command = press_play)
+back_btn = tkinter.Button(control_frame,image=back_btn_img, borderwidth = 0,command = prev_song)
+forward_btn = tkinter.Button(control_frame,image=forward_btn_img, borderwidth = 0,command = next_song)
+loop_btn = tkinter.Button(control_frame, image=no_loop_img, borderwidth=0, command = loopit)
+shuffle_btn = tkinter.Button(control_frame, image = shuffle_btn_img, borderwidth=0, command = shuffle)
 
-status_bar = Label(root, text = '',bd = 1, relief = GROOVE, anchor = E)
-status_bar.pack(fill = X, side = "bottom", ipady=2)
+status_bar = tkinter.Label(root, text = '',bd = 1, relief = "groove", anchor = "e")
+status_bar.pack(fill = "x", side = "bottom", ipady=2)
 
-play_txt = Label(control_frame, text = '', bd = 1,  anchor = CENTER, width = 5)
+play_txt = tkinter.Label(control_frame, text = '', bd = 1,  anchor = "center", width = 5)
 
-#setting up menu down below to look neat
+#setting up tkinter.Menu down below to look neat
 play_txt.grid(row=0,column=1)
 
 loop_btn.grid(row=1, column = 0, pady=5, padx = 40)
